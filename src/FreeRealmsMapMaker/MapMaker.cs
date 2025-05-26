@@ -16,8 +16,8 @@ public class MapMaker
     /// Gets the input directory containing the TileInfo.txt/tile files.
     /// </summary>
     [Argument(0, Name = "InputDirectory", Description = "The input directory containing the TileInfo.txt/tile files.")]
-    [Required]
     [DirectoryExists]
+    [Required]
     public string InputDirectory { get; } = "";
 
     /// <summary>
@@ -25,19 +25,31 @@ public class MapMaker
     /// </summary>
     [Argument(1, Name = "OutputDirectory", Description = "The output directory to put the map files.")]
     [FileNotExists]
+    [Required]
     public string OutputDirectory { get; } = "./maps";
 
     /// <summary>
     /// Gets the directory containing the intermediate tile files.
     /// </summary>
     [Option(ShortName = "t", Description = "The directory containing the intermediate tile files.")]
+    [FileNotExists]
+    [Required]
     public string TileDirectory { get; } = "./tiles";
 
     /// <summary>
     /// Gets the image format of the output map.
     /// </summary>
     [Option(ShortName = "f", Description = "The image format of the output map.")]
+    [Required]
     public string Format { get; } = ".png";
+
+    /// <summary>
+    /// Gets the maximum number of threads to use during conversion.
+    /// </summary>
+    [Option(ShortName = "m", Description = "The maximum number of threads to use during conversion."
+                                           + "\nSet the value to -1 to specify no upper limit.")]
+    [Range(-1, int.MaxValue)]
+    public int MaxThreads { get; } = 1;
 
     /// <summary>
     /// Gets whether to automatically answer yes to any question.
@@ -126,7 +138,7 @@ public class MapMaker
     /// <summary>
     /// Converts image files in the specified directory from DDS -> PNG.
     /// </summary>
-    private static void ConvertDdsFiles(string path)
+    private void ConvertDdsFiles(string path)
     {
         List<string> ddsFiles = [.. Directory.EnumerateFiles(path)
                                              .Where(x => x.EndsWith(".dds", StringComparison.OrdinalIgnoreCase))];
@@ -135,12 +147,11 @@ public class MapMaker
 
         string converter = Where("magick.exe") ?? throw new FileNotFoundException("Cannot find ImageMagick binary.");
         using ProgressBar pbar = new(ddsFiles.Count, "Converting tiles", PbarOptions);
-
-        foreach (string ddsFile in ddsFiles)
+        Parallel.ForEach(ddsFiles, new ParallelOptions { MaxDegreeOfParallelism = MaxThreads }, (ddsFile) =>
         {
             Process.Start(converter, $"{ddsFile} {Path.ChangeExtension(ddsFile, ".png")}").WaitForExit();
-            pbar.Tick();
-        }
+            UpdateProgress(pbar, $"Converting {Path.GetFileName(ddsFile)}");
+        });
 
         foreach (string ddsFile in ddsFiles)
         {

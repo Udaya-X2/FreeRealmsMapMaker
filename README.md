@@ -31,6 +31,9 @@ Options:
                                         Default value is: ./tiles.
   -f|--format <FORMAT>                  The image format of the output map.
                                         Default value is: .png.
+  -m|--max-threads <MAX_THREADS>        The maximum number of threads to use during conversion.
+                                        Set the value to -1 to specify no upper limit.
+                                        Default value is: 1.
   -y|--answer-yes                       Automatically answer yes to any question.
   -?|-h|--help                          Show help information.
 ```

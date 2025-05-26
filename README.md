@@ -37,3 +37,7 @@ Options:
   -y|--answer-yes                       Automatically answer yes to any question.
   -?|-h|--help                          Show help information.
 ```
+
+## Credits
+
+Icon by [surang](https://www.freepik.com/icon/game-map_3862772).

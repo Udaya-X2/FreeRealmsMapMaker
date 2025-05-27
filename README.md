@@ -16,6 +16,8 @@ For example,
 FreeRealmsMapMaker.exe "../Assets/assets" "../Assets/maps"
 ```
 
+![example](docs/example.gif)
+
 ## Usage
 
 ```

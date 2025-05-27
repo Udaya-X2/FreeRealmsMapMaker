@@ -4,7 +4,7 @@ A console application that lets you create maps from Free Realms tile assets.
 
 ## Requirements
 
-Must have [ImageMagick](https://imagemagick.org/) for Windows installed, and check "Add application path to your system path."
+Must have [.NET 8.0+](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) for Windows installed.
 
 ## Introduction
 
@@ -13,7 +13,7 @@ Simply place your `*_TileInfo.txt` and `*_Tile_*.dds` files (i.e., `FabledRealms
 For example,
 
 ```
-FreeRealmsMapMaker.exe "C:/Users/udaya/Downloads/assets" "C:/Users/Udaya/Downloads/maps"
+FreeRealmsMapMaker.exe "../Assets/assets" "../Assets/maps"
 ```
 
 ## Usage
@@ -22,22 +22,20 @@ FreeRealmsMapMaker.exe "C:/Users/udaya/Downloads/assets" "C:/Users/Udaya/Downloa
 Usage: FreeRealmsMapMaker [options] <InputDirectory> <OutputDirectory>
 
 Arguments:
-  InputDirectory                        The input directory containing the TileInfo.txt/tile files.
-  OutputDirectory                       The output directory to put the map files.
-                                        Default value is: ./maps.
+  InputDirectory                  The input directory containing the TileInfo.txt/tile files.
+  OutputDirectory                 The output directory to put the map files.
+                                  Default value is: ./maps.
 
 Options:
-  -t|--tile-directory <TILE_DIRECTORY>  The directory containing the intermediate tile files.
-                                        Default value is: ./tiles.
-  -f|--format <FORMAT>                  The image format of the output map.
-                                        Default value is: .png.
-  -m|--max-threads <MAX_THREADS>        The maximum number of threads to use during conversion.
-                                        Set the value to -1 to specify no upper limit.
-                                        Default value is: 1.
-  -y|--answer-yes                       Automatically answer yes to any question.
-  -?|-h|--help                          Show help information.
+  -f|--format <FORMAT>            The image format of the output map.
+                                  Default value is: .png.
+  -m|--max-threads <MAX_THREADS>  The maximum number of threads to use.
+                                  By default (-1), there is no upper limit.
+                                  Default value is: -1.
+  -?|-h|--help                    Show help information.
 ```
 
 ## Credits
 
-Icon by [surang](https://www.freepik.com/icon/game-map_3862772).
+* Icon by [surang](https://www.freepik.com/icon/game-map_3862772).
+* Bitmap support for [.dds files](src/FreeRealmsMapMaker/Dds) acquired from [Shendare](https://github.com/Shendare)'s [DDSImage.cs](https://github.com/Shendare/EQZip/blob/master/DDSImage.cs).

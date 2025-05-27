@@ -23,7 +23,7 @@ public class Map(string tileInfoFile)
     /// <param name="minZ">The minimum z-coordinate.</param>
     /// <param name="maxX">The maximum x-coordinate.</param>
     /// <param name="maxZ">The maximum z-coordinate.</param>
-    public void ComputeMapBorders(out int minX, out int minZ, out int maxX, out int maxZ)
+    public void ComputeBorders(out int minX, out int minZ, out int maxX, out int maxZ)
     {
         minX = int.MaxValue;
         minZ = int.MaxValue;

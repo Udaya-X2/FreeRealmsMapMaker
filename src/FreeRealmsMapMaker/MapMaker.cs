@@ -3,6 +3,7 @@ using McMaster.Extensions.CommandLineUtils;
 using ShellProgressBar;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Runtime.Versioning;
 using System.Text.RegularExpressions;
 
@@ -35,7 +36,7 @@ public partial class MapMaker
     /// </summary>
     [Option(ShortName = "f", Description = "The image format of the output map.")]
     [Required]
-    public string Format { get; } = ".png";
+    public ImageFormat Format { get; } = ImageFormat.Png;
 
     /// <summary>
     /// Gets the maximum number of threads to use.
@@ -44,6 +45,13 @@ public partial class MapMaker
                                            + "\nBy default (-1), there is no upper limit.")]
     [Range(-1, int.MaxValue)]
     public int MaxThreads { get; } = -1;
+
+    /// <summary>
+    /// Gets the file extension of the output map.
+    /// </summary>
+    private string Extension => _extension ??= $".{Format.ToString().ToLower()}";
+
+    private string? _extension;
 
     [GeneratedRegex(@"[^/\\]*?_Tile_[^/\\]*?\.dds$", RegexOptions.IgnoreCase | RegexOptions.RightToLeft, "en-US")]
     private static partial Regex TileRegex();
@@ -121,8 +129,8 @@ public partial class MapMaker
             g.DrawImage(image, x, y, tile.Width, tile.Height);
         }
 
-        bitmap.Save($"{OutputDirectory}/{map.Name}{Format}");
-        UpdateProgress(pbarMap, $"Created map: {map.Name}{Format}");
+        bitmap.Save($"{OutputDirectory}/{map.Name}{Extension}", Format);
+        UpdateProgress(pbarMap, $"Created map: {map.Name}{Extension}");
     }
 
     /// <summary>

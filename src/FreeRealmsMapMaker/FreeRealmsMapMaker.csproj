@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AssemblyTitle>Free Realms Map Maker</AssemblyTitle>
-    <Version>2.0.0</Version>
+    <Version>2.0.1</Version>
     <Authors>Udaya</Authors>
     <Description>Create maps from Free Realms tile assets.</Description>
     <Copyright>Copyright (c) Udaya 2025</Copyright>

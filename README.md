@@ -30,7 +30,7 @@ Arguments:
 
 Options:
   -f|--format <FORMAT>            The image format of the output map.
-                                  Default value is: .png.
+                                  Default value is: Png.
   -m|--max-threads <MAX_THREADS>  The maximum number of threads to use.
                                   By default (-1), there is no upper limit.
                                   Default value is: -1.

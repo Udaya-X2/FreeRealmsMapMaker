@@ -23,11 +23,11 @@
 
 namespace FreeRealmsMapMaker.Dds;
 
-internal struct DDS_HEADER_DXT10
-{
-    public DXGI_FORMAT dxgiFormat;
-    public D3D10_RESOURCE_DIMENSION resourceDimension;
-    public uint miscFlag;
-    public uint arraySize;
-    public uint reserved;
-}
+//internal struct DDS_HEADER_DXT10
+//{
+//    public DXGI_FORMAT dxgiFormat;
+//    public D3D10_RESOURCE_DIMENSION resourceDimension;
+//    public uint miscFlag;
+//    public uint arraySize;
+//    public uint reserved;
+//}

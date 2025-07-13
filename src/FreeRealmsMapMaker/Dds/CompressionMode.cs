@@ -34,9 +34,7 @@ internal enum CompressionMode
     V8U8 = 7,
     DX10 = 10,
     A1R5G5B5 = 15,
-    RGB15 = 15,
     R5G6B5 = 16,
-    RGB16 = 16,
     RGB24 = 24,
     RGB32 = 32
 }

@@ -32,7 +32,7 @@ internal struct DDS_HEADER
     public int dwPitchOrLinearSize;
     public int dwDepth;
     public int dwMipMapCount;
-    public int[] dwReserved1;
+    //public int[] dwReserved1;
     public int dwCaps;
     public int dwCaps2;
     public int dwCaps3;

@@ -75,7 +75,7 @@ internal class DdsImage
     #endregion
 
     public DDS_HEADER Header;
-    public DDS_HEADER_DXT10 Header10;
+    //public DDS_HEADER_DXT10 Header10;
     public DDS_PIXELFORMAT PixelFormat;
     public Bitmap[] Images;
     public int MipMapCount;
@@ -102,7 +102,7 @@ internal class DdsImage
 
         if (data.ReadInt32() != MAGIC_NUMBER)
         {
-            throw new IOException($"{nameof(DdsImage)}(Stream) requires a .dds texture stream.");
+            throw new IOException($"{nameof(DdsImage)}({nameof(Stream)}) requires a .dds texture stream.");
         }
 
         Format = CompressionMode.Unknown;
@@ -162,7 +162,7 @@ internal class DdsImage
                         default:
                             break;
                     }
-                    throw new IOException("Unsupported compression format");
+                    throw new IOException("Unsupported compression format.");
             }
         }
 
@@ -202,6 +202,7 @@ internal class DdsImage
         }
 
         MipMapCount = 1;
+
         if ((Header.dwFlags & DDSD_MIPMAPCOUNT) != 0)
         {
             MipMapCount = Header.dwMipMapCount == 0 ? 1 : Header.dwMipMapCount;

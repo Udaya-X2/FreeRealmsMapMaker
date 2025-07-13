@@ -1,6 +1,6 @@
 ﻿/*
 * 
-*  DDSImage.cs - DDS Texture File Reading (Uncompressed, DXT1/2/3/4/5, V8U8) and Writing (Uncompressed Only)
+*  DdsImage.cs - DDS Texture File Reading (Uncompressed, DXT1/2/3/4/5, V8U8) and Writing (Uncompressed Only)
 *  
 *  By Shendare (Jon D. Jackson)
 * 
@@ -23,7 +23,7 @@
 
 namespace FreeRealmsMapMaker.Dds;
 
-internal enum D3D10_RESOURCE_DIMENSION
+public enum D3D10_RESOURCE_DIMENSION
 {
     D3D10_RESOURCE_DIMENSION_UNKNOWN = 0,
     D3D10_RESOURCE_DIMENSION_BUFFER = 1,

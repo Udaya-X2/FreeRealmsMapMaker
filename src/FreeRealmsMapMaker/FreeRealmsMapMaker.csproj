@@ -12,7 +12,6 @@
     <Copyright>Copyright (c) Udaya 2025</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Udaya-X2/FreeRealmsMapMaker</RepositoryUrl>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <ApplicationIcon>assets\icon.ico</ApplicationIcon>
   </PropertyGroup>
 

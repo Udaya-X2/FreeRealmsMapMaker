@@ -1,6 +1,6 @@
 ﻿/*
 * 
-*  DDSImage.cs - DDS Texture File Reading (Uncompressed, DXT1/2/3/4/5, V8U8) and Writing (Uncompressed Only)
+*  DdsImage.cs - DDS Texture File Reading (Uncompressed, DXT1/2/3/4/5, V8U8) and Writing (Uncompressed Only)
 *  
 *  By Shendare (Jon D. Jackson)
 * 
@@ -23,7 +23,7 @@
 
 namespace FreeRealmsMapMaker.Dds;
 
-internal struct DDS_HEADER
+public struct DDS_HEADER
 {
     public int dwSize;
     public int dwFlags;

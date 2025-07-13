@@ -4,7 +4,7 @@
 *  
 *  By Shendare (Jon D. Jackson)
 * 
-*  Rebuilt from Microsoft DDS documentation with the help of the DdsImage.cs reading class from
+*  Rebuilt from Microsoft DDS documentation with the help of the DDSImage.cs reading class from
 *  Lorenzo Consolaro, under the MIT License.  https://code.google.com/p/kprojects/ 
 * 
 *  Portions of this code not covered by another author's or entity's copyright are released under
@@ -29,7 +29,7 @@ using System.Runtime.Versioning;
 namespace FreeRealmsMapMaker.Dds;
 
 [SupportedOSPlatform("windows")]
-internal class DdsImage
+public class DdsImage
 {
     #region Constants and Bitflags
 

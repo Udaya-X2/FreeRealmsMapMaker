@@ -3,7 +3,7 @@ using System.Runtime.Versioning;
 
 namespace FreeRealmsMapMaker;
 
-internal class Program
+public class Program
 {
     [SupportedOSPlatform("windows")]
     public static void Main(string[] args)
